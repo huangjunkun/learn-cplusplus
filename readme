@@ -1,2 +1,28 @@
 你好，我打算在存放联系C++的程序代码。
 谢谢！
+---------
+源件说明:
+
+2.
+/**
+** 源文件：cout_buffer.h, cout_buffer_test.cpp
+** 功能描述：
+** 类型CCoutBufferT，实现输入输出的缓冲区，先进先出的缓冲区。如：
+** [数据输出到缓冲区顺序] -> 1 -> 2 -> 3 | [缓冲区输入到数据顺序] 1 <- 2 <- 3
+** 输入过程中，缓冲区会自动调整缓冲大小。目前仅支持类型unsigned，int，tchar，std::string，还有vector集合。
+** 支持其他或基本类型自定义类型的输入输出，需设计者继续自行扩展。
+
+** 作者：junkun huang  e-mail：huangjunkun@gmail.com
+** 日期：2010-11-25 /
+*/
+
+1. 
+/**
+** 源文件：big_or_little_endian_func.cpp
+** 功能描述：提供字节序转化的基本函数，包括判断本机字节序高端或低端功能。
+** ** 包含测试程序。
+** 
+** 作者：junkun huang  e-mail：huangjunkun@gmail.com
+** 日期：2010-11-25 /
+*/
+
