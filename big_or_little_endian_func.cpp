@@ -1,10 +1,6 @@
-#ifndef MAIN_H_INCLUDED
-#define MAIN_H_INCLUDED
-
-#pragma once
-
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 #include <string>
 #include <cassert>
 #include <iostream>
@@ -15,13 +11,6 @@
 #include <process.h>
 
 using namespace std;
-//#include <F:/download_lib_xl7/dl_common/common/range.h>
-
-#ifndef SAFE_DELETE
-#define SAFE_DELETE(ptr) do { if (ptr) delete ptr; ptr = NULL; } while(0)
-#endif
-
-
 
 namespace test_namespace
 {
@@ -52,36 +41,8 @@ namespace test_namespace
     T test_t<T>::s_value = 0;
 }
 
-
-namespace test_xl_items
+namespace test_namespace
 {
-enum ECloudTransOperType
-{
-    CLOUD_TRANS_OPER_QUERY = 0,
-    CLOUD_TRANS_OPER_REQUEST = 1,
-};
-
-#define release_assert assert
-#define thunder_assert assert
-class range
-{
-public:
-    range() : pos(0), len(0) {}
-    range(unsigned p, unsigned l) : pos(p), len(l) {}
-    unsigned length() const
-    {
-        return len;
-    }
-private:
-    unsigned pos,len;
-public:
-    friend std::ostream& operator << (std::ostream& os, const range& r)
-    {
-        os << " range[" << r.pos << ", " << (r.pos + r.len) << "]";
-        return os;
-    }
-};
-
 
 bool _TestBigEndian()
 {
@@ -155,8 +116,6 @@ uint64 htonll(uint64 n)
     if (TestBigEndian())
         return n;
 
-    release_assert(TestLittleEndian());
-
     return ((n & 0xff) << 56) |
            ((n & 0xff00) << 40) |
            ((n & 0xff0000) << 24) |
@@ -204,6 +163,42 @@ uint64 ntoh(uint64 n)
 {
     return ntohll(n);
 }
-}
 
-name
+} // namespace test_namespace
+
+int main()
+{
+
+    ///*
+        {
+        using namespace test_namespace;
+        uint8  a_uint8  = 0x12;
+        uint16 a_uint16 = 0x1234;
+        uint32 a_uint32 = 0x12345678;
+        uint64 a_uint64 = 0x1234567890abcdef;
+        std::cout << " " << TestBigEndian() << "\n";
+
+        std::cout << hex << a_uint8 << "\n";
+        std::cout << hex << a_uint16 << "\n";
+        std::cout << hex << a_uint32 << "\n";
+        std::cout << hex << a_uint64 << "\n";
+
+        std::cout << hex << hton(a_uint8) << "\n";
+        std::cout << hex << hton(a_uint16) << "\n";
+        std::cout << hex << hton(a_uint32) << "\n";
+        std::cout << hex << hton(a_uint64) << "\n";
+
+        }
+    /*
+        {
+        using namespace TestSpace;
+        cout << " test_big_endian:" << test_big_endian() << " ,test_little_endian:" << test_little_endian() << "\n";
+        cout << " test_big_endian:" << test_big_endian() << " ,test_little_endian:" << test_little_endian() << "\n";
+        cout << " test_big_endian:" << test_big_endian() << " ,test_little_endian:" << test_little_endian() << "\n";
+
+        }
+
+   /** =========================*/
+    cout << "Hello world!" << endl;
+    return 0;
+}
