@@ -1,7 +1,33 @@
-你好，我打算在存放联系C++的程序代码。
+你好，我打算在存放练习C++的程序代码，包括工作时项目开发前期测试性代码。
+若你发现其中存在问题，欢迎联系本人，e-mail：huangjunkun@gmail.com！
+
 谢谢！
 ---------
 源件说明:
+
+4.
+
+/**
+** 源文件： thread_class.h, thrad_class_test.cpp
+** 功能描述：封装WIN线程API，抽象实现线程基类thread_base。
+** 方便用于定制具体操作的线程子类。
+**
+** 作者：junkun huang  e-mail：huangjunkun@gmail.com
+** 日期：2010-12-25 /
+*/
+
+3.
+
+/**
+** 文件： c_singe_file.h，c_singe_file_test.cpp
+**
+** 函数： trim_tstring
+** 功能： 裁剪字符串，针对字符串首尾裁剪空格与制表符。
+** 类型： c_single_file
+** 功能： 封装CRT基本的文件读写操作。方便使用。
+** 作者：junkun huang  e-mail：huangjunkun@gmail.com
+** 日期：2011-07-21 /
+*/
 
 2.
 /**
