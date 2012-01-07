@@ -1,5 +1,5 @@
-#ifndef MAIN_H_INCLUDED
-#define MAIN_H_INCLUDED
+#ifndef THREAD_CLASS_H_INCLUDED
+#define THREAD_CLASS_H_INCLUDED
 
 #include <iostream>
 #include <cstdio>
@@ -302,4 +302,4 @@ void test_thread_t<IsCreateSuspended>::operator delete( void* mem, void *ptr) th
 }/// namespace test_namespace
 
 
-#endif // MAIN_H_INCLUDED
+#endif // THREAD_CLASS_H_INCLUDED
