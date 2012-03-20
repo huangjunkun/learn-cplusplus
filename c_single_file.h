@@ -1,8 +1,6 @@
 #ifndef __C_SINGLE_FILE_H
 #define __C_SINGLE_FILE_H
 
-#pragma  once
-
 
 #include <exception>
 #include <iostream>
@@ -117,6 +115,40 @@ const unsigned CHAR_LOWER_UPPER_CHANGE_FACTOR = _T('z') - _T('a');
 
 #endif // end __COUT_FOR_LOG_
 #endif // end _DEBUG
+
+#define SET_ASYNFRAME_THREAD_ID() do { g_asyn_frame_thread_id = GetCurrentThreadId(); } while(0)
+#define IF_NOT_ASYNFRAME_THREAD_RETURN(ret) do { if ( g_asyn_frame_thread_id && g_asyn_frame_thread_id != GetCurrentThreadId() ) { assert(("该方法只能在下载库线程调用",NULL)); return ret; } } while(0)
+#define IF_IN_ASYNFRAME_THREAD_RETURN(ret) do { if ( g_asyn_frame_thread_id && g_asyn_frame_thread_id == GetCurrentThreadId() ) { assert(("该方法不能在下载库线程调用",NULL)); return ret; } } while(0)
+
+#define IF_POINTER_INVALID_RETURN(ptr,ret) do { assert(ptr); if ( !(ptr) ) return ret; } while(0)
+#define IF_VAR_EQUAL_RETURN(var,value,ret) do { if ( (var)==(value) ) return ret; } while(0)
+#define IF_HRESULT_ERROR_RETURN(lr) do { assert(SUCCEEDED(lr)); if ( FAILED(lr) ) return lr; } while(0)
+#define IF_EMPTY_STRING_RETURN(S,hr) do { if (S.len==0||S.str==NULL) return hr; } while(0)
+
+#ifndef SAFE_DELETE
+#define SAFE_DELETE(a) do { if(NULL != (a)) {delete (a);(a)=NULL;} } while(0)
+#endif
+
+#ifndef SAFE_DELETE_ARRAY
+#define SAFE_DELETE_ARRAY(p) {if(p) {delete [] (p); (p)=NULL;} }
+#endif
+
+#ifndef SAFE_RELEASE
+#define SAFE_RELEASE(a) do { if(NULL!=(a)) { (a)->Release(); (a)=NULL;} } while(0)
+#endif
+
+#ifndef FINAL_RELEASE
+#define FINAL_RELEASE(a) do { ULONG ref = (a)->Release(); assert(("某 COM 指针 Release 之后引用计数不为0!",ref==0)); (a)=NULL; } while(0)
+#endif
+
+#ifndef SAFE_UNINIT_RELEASE
+#define SAFE_UNINIT_RELEASE(a) do { if(NULL!=(a)) { (a)->Uninit(); (a)->Release(); (a)=NULL;} } while(0)
+#endif
+
+#ifndef SAFE_CLOSE_HANDLE
+#define SAFE_CLOSE_HANDLE(a) do { if(NULL!=(a)&&INVALID_HANDLE_VALUE!=(a)){CloseHandle(a);(a)=NULL;} } while(0)
+#endif
+
 
 }// namespace junkun
 
