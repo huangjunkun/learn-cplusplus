@@ -6,13 +6,22 @@
 ---------
 源文件说明:
 
+8.
+/**
+** 源文件： use_multimap4query.cpp
+** 1. 使用 std::multimap 结构做记录。添加、删除、测试（验证）记录条目。
+** Just test for these function here.
+** 详见代码逻辑。
+** 作者：junkun huang
+** 日期：2012-05-05 /
+*/
 
 7.
 /**
 ** 源文件： diff_pointer_convert.cpp
 ** 1.  测试不同类型指针转化，涉及计算不同成员变量在类型对象不同的偏移地址。
 ** 详见代码逻辑。
-** 作者：junkun huang  
+** 作者：junkun huang
 ** 日期：2012-03-25 /
 */
 
@@ -24,8 +33,8 @@
 ** 链接：
 	http://huangjunkun.blogspot.com/2012/03/try-throw-catch.html
 	http://huangjunkun.blogspot.com/2012/03/catch.html
-	
-** 作者：junkun huang  
+
+** 作者：junkun huang
 ** 日期：2012-03-19 /
 */
 
@@ -35,7 +44,7 @@
 ** 源文件： timer_class.h, timer_class_test.cpp
 ** 封装WIN定时器操作API，抽象实现timer类型，方便使用。
 **
-** 作者：junkun huang  
+** 作者：junkun huang
 ** 日期：2011-06-25 /
 */
 
@@ -46,7 +55,7 @@
 ** 功能描述：封装WIN线程API，抽象实现线程基类thread_base。
 ** 方便用于定制具体操作的线程子类。
 **
-** 作者：junkun huang  
+** 作者：junkun huang
 ** 日期：2010-12-25 /
 */
 
@@ -59,7 +68,7 @@
 ** 功能： 裁剪字符串，针对字符串首尾裁剪空格与制表符。
 ** 类型： c_single_file
 ** 功能： 封装CRT基本的文件读写操作。方便使用。
-** 作者：junkun huang  
+** 作者：junkun huang
 ** 日期：2011-07-21 /
 */
 
@@ -72,17 +81,17 @@
 ** 输入过程中，缓冲区会自动调整缓冲大小。目前仅支持类型unsigned，int，tchar，std::string，还有vector集合。
 ** 支持其他或基本类型自定义类型的输入输出，需设计者继续自行扩展。
 
-** 作者：junkun huang  
+** 作者：junkun huang
 ** 日期：2010-11-25 /
 */
 
-1. 
+1.
 /**
 ** 源文件：big_or_little_endian_func.cpp
 ** 功能描述：提供字节序转化的基本函数，包括判断本机字节序高端或低端功能。
 ** ** 包含测试程序。
-** 
-** 作者：junkun huang  
+**
+** 作者：junkun huang
 ** 日期：2010-11-25 /
 */
 

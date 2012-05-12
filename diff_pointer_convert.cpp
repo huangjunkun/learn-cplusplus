@@ -8,7 +8,7 @@ using namespace std;
 struct overlapped_data
 {
     overlapped_data()
-    : data(0), data_len(0)
+        : data(0), data_len(0)
     {}
     ~overlapped_data()
     {
@@ -30,7 +30,7 @@ class asyn_io_operation
 {
 public:
     asyn_io_operation()
-    : lparam(0), rparam(0) {}
+        : lparam(0), rparam(0) {}
 
     /// member data
     overlapped_data data;
@@ -43,8 +43,14 @@ public:
         oss << data.to_str() << " [lparam]" << lparam << " [rparam]" << rparam;
         return oss.str();
     }
-    const overlapped_data* data_ptr() const { return &data; }
-    overlapped_data* data_ptr() { return &data; }
+    const overlapped_data* data_ptr() const
+    {
+        return &data;
+    }
+    overlapped_data* data_ptr()
+    {
+        return &data;
+    }
     // ... more ...
 };
 
@@ -76,15 +82,15 @@ int main()
 {
     /// 测试不同类型指针转化，涉及计算不同成员变量在类型对象不同的偏移地址。
     {
-    std::cout << " " << &((static_cast<asyn_io_operation*>(0))->data) << "\n";
-    std::cout << " " << &((static_cast<asyn_io_operation*>(0))->lparam) << "\n";
-    std::cout << " " << &((static_cast<asyn_io_operation*>(0))->rparam) << "\n";
+        std::cout << " " << &((static_cast<asyn_io_operation*>(0))->data) << "\n";
+        std::cout << " " << &((static_cast<asyn_io_operation*>(0))->lparam) << "\n";
+        std::cout << " " << &((static_cast<asyn_io_operation*>(0))->rparam) << "\n";
 
-    asyn_io_operation io_op;
-    do_handle_io_operation((&io_op));
+        asyn_io_operation io_op;
+        do_handle_io_operation((&io_op));
 
-    do_handle_overlapped_data(io_op.data_ptr());
-    do_handle_io_operation((&io_op));
+        do_handle_overlapped_data(io_op.data_ptr());
+        do_handle_io_operation((&io_op));
     }
 
     /*********/
